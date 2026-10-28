@@ -1,0 +1,44 @@
+---
+layout: runbook
+title: '#4471 · two problems under one known'
+owner: student
+status: draft
+reviewed: 2026-10-28
+signature: v1.eyJzdWIiOiI0NzA1IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMjM0OTAsImV4cCI6MTc5MzMwOTg5MH0.qdeaGj50ku7LQzPUH4I-HHSYwviqKiBb0RrlHO5WW4Y
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+The desk merged **412** unique reports into **#4471** and marked it known: one parser bug,
+one fix queued. The cause table disagrees.
+
+## What #4471 actually holds
+
+`causeOf` splits the merged reports by tenant locale and booking form. Two causes land in
+the same ticket:
+
+- **parser** — day-first tenants; the shared parser still reads month first.
+- **hint** — booking-v3 prints `MM/DD/YYYY` under the field; the tenant still reads day
+  first, so the form and the locale fight.
+
+<CauseTable ticket={4471} />
+
+<Callout>
+Not one issue. Two causes share #4471. File one desk ticket per cause, with its report count.
+</Callout>
+
+## What to open
+
+Open a ticket for each cause the table lists. Put the report count on the ticket. Keep
+#4471 as the merge parent until engineering unmerges.
+
+## Lessons
+
+- Subject-line dedupe can hide a second bug that shares the same wording.
+- Intake tags (`parser` / `hint`) are guesses; the tenant's locale and form decide the cause.
+
+<RenderStamp {signature} />
