@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · two problems under one known'
 owner: student
-status: draft
+status: closed
 reviewed: 2026-10-28
 signature: v1.eyJzdWIiOiI0NzA1IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMyMjM0OTAsImV4cCI6MTc5MzMwOTg5MH0.qdeaGj50ku7LQzPUH4I-HHSYwviqKiBb0RrlHO5WW4Y
 ---
@@ -31,10 +31,10 @@ the same ticket:
 Not one issue. Two causes share #4471. File one desk ticket per cause, with its report count.
 </Callout>
 
-## What to open
+## Engineering update · #4471 closed 05 Oct
 
-Open a ticket for each cause the table lists. Put the report count on the ticket. Keep
-#4471 as the merge parent until engineering unmerges.
+- **parser** · FIXED · `fix(dates): parse dd/mm for eu locales` · **379 reports**
+- **hint** · WON'T FIX · booking-v3 form retired · **33 reports**
 
 ## Lessons
 
